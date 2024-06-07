@@ -2,7 +2,7 @@ import { Button, message } from 'antd';
 import React from 'react'
 import Globe from "../../images/globe.svg";
 import { NavLink, useNavigate } from 'react-router-dom';
-import { GithubAuthProvider, GoogleAuthProvider, auth, provider, signInWithEmailAndPassword, signInWithPopup } from '../../firebase';
+import { GithubAuthProvider, GoogleAuthProvider, auth, gitProvider, provider, signInWithEmailAndPassword, signInWithPopup } from '../../firebase';
 
 
 interface LoginProps {
@@ -44,7 +44,7 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
 
     const handleGithubLogin=async()=>{
         message.loading("Signing with Github");
-        await signInWithPopup(auth, provider)
+        await signInWithPopup(auth, gitProvider)
             .then((result) => {
                 message.loading("Setting up everything");
                 const credential = GithubAuthProvider.credentialFromResult(result);
@@ -66,7 +66,7 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 const email = error.customData.email;
-                const credential = GoogleAuthProvider.credentialFromError(error);
+                const credential = GithubAuthProvider.credentialFromError(error);
                 console.error(email);
                 console.error(credential);
             });
