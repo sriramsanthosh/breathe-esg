@@ -14,7 +14,7 @@ const handleChange = (value: string) => {
 
 
 const SideContent: React.FC = () => {
-    const [contentName, setContentName] = useState("Dashboard");
+    const [contentName, setContentName] = useState("View Name");
     const [switchComp, setSwitchComp] = useState(false);
 
     const handleTab = (temp:number)=>{
