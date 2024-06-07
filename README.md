@@ -4,9 +4,17 @@
   
 ## Overview
 
-A front-end website made according to the provided figma design
+This assignment is a front-end website made according to the provided figma design.
 
-<sup>for design, [ <a href="https://www.figma.com/design/I6pUagfeowlYopooKq4a78/Untitled?m=dev&node-id=0-1">click here</a> ]</sup>
+To create an account, Manual Sign Up (at the bottom of the login container),
+  
+
+<div align="center">
+  
+<img  src='https://github.com/sriramsanthosh/breathe-esg/assets/95128072/132cbdaa-147f-4cd4-ae38-fd7d860d2e14' width="100px">
+
+  click on `Switch to Manual Sign Up` 
+</div>
 
 ## Techstack Used
 <div align="center">
@@ -42,3 +50,5 @@ A front-end website made according to the provided figma design
 <hr>
 
 <div align='center'>Made with 💖 <a target="_blank" href="https://linkedin.com/in/sriramsanthosh">Sriram Santhosh</a></div>
+
+<div align='right'><sup>for design, [ <a href="https://www.figma.com/design/I6pUagfeowlYopooKq4a78/Untitled?m=dev&node-id=0-1">click here</a> ]</sup></div>
