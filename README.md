@@ -1,6 +1,6 @@
 <h1 align="center"><img src="https://github.com/sriramsanthosh/breathe-esg/blob/main/src/images/BlogoNoBg.png?raw=true" width="30px"> BREATHE-ESG Assignment</h1>
 
-<p  align="center">Website is live at : https://breathe-esg-by-sriram.vercel.app</p>
+<p  align="center">Website is live at : <a href="https://breathe-esg-by-sriram.vercel.app" target="_blank">https://breathe-esg-by-sriram.vercel.app</a></p>
   
 ## Overview
 
@@ -41,4 +41,4 @@ A front-end website made according to the provided figma design
 
 <hr>
 
-<div align='center'>Made with 💖 <a href="https://linkedin.com/in/sriramsanthosh">Sriram Santhosh</a></div>
+<div align='center'>Made with 💖 <a target="_blank" href="https://linkedin.com/in/sriramsanthosh">Sriram Santhosh</a></div>
