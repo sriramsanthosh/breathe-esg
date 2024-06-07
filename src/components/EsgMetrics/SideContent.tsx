@@ -5,6 +5,7 @@ import { BellOutlined } from '@ant-design/icons';
 import { Button, Divider, Select } from 'antd';
 import Avatar from "../../images/avatar.svg";
 import "./style.scss";
+import TrackerContent from "./TrackerContent";
 
 
 const handleChange = (value: string) => {
@@ -92,7 +93,7 @@ const SideContent: React.FC = () => {
                     {!switchComp && <Button type="primary">Submit for Approval</Button>}
                 </div>
             </div>
-            {switchComp? "Will be updated soon.." : <SimpleTable />}
+            {switchComp? <TrackerContent/>: <SimpleTable />}
             <Footer />
         </div>
     )

@@ -59,7 +59,7 @@ const SideNav: React.FC = () => {
     }));
 
     return (
-        <div style={{ maxWidth: "fit-content", position: "relative", background: "#001529", minHeight: "100vh" }}>
+        <div className='sideNavContainer' style={{ maxWidth: "fit-content", position: "relative", background: "#001529", minHeight: "100vh" }}>
             <div style={{
                 backgroundColor: "#001529",
                 paddingBottom: "20px"

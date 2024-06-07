@@ -13,7 +13,7 @@ const EsgMetricsPage: React.FC = () => {
         <div>
             {localStorage.getItem("displayName") ? <div style={{ background: "white", width: "100%" }}>
                 <div style={{ display: "flex" }}>
-                    <div style={{}}>
+                    <div style={{backgroundColor: "#001529",}}>
                         <SideNav />
                     </div>
                     <div style={{ marginLeft: "20px", overflowX: "auto", width: "100%" }}>
