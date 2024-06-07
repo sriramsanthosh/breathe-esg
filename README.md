@@ -1,6 +1,6 @@
-<h1 align="center"><img src="https://github.com/sriramsanthosh/breathe-esg/blob/main/src/images/BlogoNoBg.png?raw=true" width="30px"> BREATH-ESG Assignment</h1>
+<h1 align="center"><img src="https://github.com/sriramsanthosh/breathe-esg/blob/main/src/images/BlogoNoBg.png?raw=true" width="30px"> BREATHE-ESG Assignment</h1>
 
-<p  align="center">Website is live at : https://breath-esg-by-sriram.vercel.app</p>
+<p  align="center">Website is live at : https://breathe-esg-by-sriram.vercel.app</p>
   
 ## Overview
 
