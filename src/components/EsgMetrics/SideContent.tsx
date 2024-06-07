@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { HtmlHTMLAttributes, useState } from "react";
 import SimpleTable from "./SimpleTable";
 import Footer from "../footer";
 import { BellOutlined } from '@ant-design/icons';
@@ -11,8 +11,26 @@ const handleChange = (value: string) => {
     console.log(`selected ${value}`);
 };
 
+
+
 const SideContent: React.FC = () => {
     const [contentName, setContentName] = useState("Dashboard");
+    const [switchComp, setSwitchComp] = useState(false);
+
+    const handleTab = (temp:number)=>{
+        const tab1Div = document.getElementById("tab1")as HTMLDataElement;
+        const tab2Div = document.getElementById("tab2")as HTMLDataElement;
+        if(temp){
+            setSwitchComp(true);
+            tab1Div.style.color = "black";
+            tab2Div.style.color = "#4CA65B";
+            }
+            else{
+                setSwitchComp(false);
+                tab2Div.style.color = "black";
+                tab1Div.style.color = "#4CA65B";
+        }
+    }
 
     return (
         <div className="sideContent" style={{
@@ -42,17 +60,13 @@ const SideContent: React.FC = () => {
                 </div>
                 <div>
                     <div style={{ display: "flex", alignItems: "center", flexWrap:"wrap" }}>
-
                         <div>
-
                             <BellOutlined />
                         </div>
                         <div>
-
                            Hi, {localStorage.getItem("displayName")}
                         </div>
                         <div>
-
                             <img src={Avatar} alt="avatar-icon" />
                         </div>
                     </div>
@@ -62,8 +76,8 @@ const SideContent: React.FC = () => {
             <Divider />
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", }}>
                 <div style={{ display: "flex" }}>
-                    <div><i className="fa-solid fa-server"></i> Data Entry</div>&nbsp; &nbsp;
-                    <div><i className="fa-solid fa-bullseye"></i> Tracker</div>
+                    <div className="internal-tabs" id="tab1" onClick={()=>{handleTab(0);}}><i className="fa-regular fa-building"></i> DATA ENTRY</div>&nbsp; &nbsp;
+                    <div className="internal-tabs" id="tab2" onClick={()=>{handleTab(1);}}><i className="fa-solid fa-bullseye"></i> TRACKER</div>
                 </div>
                 <div>For: <Select
                     defaultValue="2324"
@@ -75,10 +89,10 @@ const SideContent: React.FC = () => {
                         { value: '2122', label: 'FY 2021-22' },
                     ]}
                 /> &nbsp;
-                    <Button type="primary">Submit for Approval</Button>
+                    {!switchComp && <Button type="primary">Submit for Approval</Button>}
                 </div>
             </div>
-            <SimpleTable />
+            {switchComp? "Will be updated soon.." : <SimpleTable />}
             <Footer />
         </div>
     )

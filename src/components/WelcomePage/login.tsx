@@ -16,6 +16,7 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
         message.loading("Signing with Google");
         await signInWithPopup(auth, provider)
             .then((result) => {
+                message.loading("Setting up everything");
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const displayName = result.user.displayName;
                 if (displayName) {
@@ -45,6 +46,7 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
         message.loading("Signing with Github");
         await signInWithPopup(auth, provider)
             .then((result) => {
+                message.loading("Setting up everything");
                 const credential = GithubAuthProvider.credentialFromResult(result);
                 const displayName = result.user.displayName;
                 if (displayName) {
@@ -164,9 +166,9 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
                 <div style={{ fontWeight: "600", lineHeight: "36px", fontSize: "24px" }}>Login</div>
                 <div>Enter your registered Email ID to continue</div>
                 <div style={{ marginTop: "20px", marginBottom: "10px" }}>Email <span style={{ color: "#CA3C25" }}>*</span></div>
-                <input type="email" name="email" id="email" placeholder="Your Email ID" />
+                <input type="email" name="email" id="email" placeholder="Your Email ID" required />
                 <div style={{ marginTop: "20px", marginBottom: "10px" }}>Password <span style={{ color: "#CA3C25" }}>*</span></div>
-                <input type="password" name="password" id="password" placeholder='Password' />
+                <input type="password" name="password" id="password" placeholder='Password' required />
                 <div className='signUpContainer'>
                     <p onClick={handleGoogleSignIn} className='text-center signUpBox'><i className="fa-brands fa-google"></i> &nbsp; Sign up with Google</p>
                     <p onClick={handleGithubLogin} className='text-center signUpBox'><i className="fa-brands fa-github"></i> &nbsp; Sign up with Github</p>
