@@ -5,10 +5,10 @@ import Login from '../components/WelcomePage/login';
 import Footer from '../components/footer';
 
 const AccessPage: React.FC = () => {
-    const [switchLogin, setLoginSwitch] = useState(false);
+    const [switchLogin, setLoginSwitch] = useState(true);
 
     useEffect(()=>{
-        console.log("hi");
+        
     }, [switchLogin]);
     
     return (

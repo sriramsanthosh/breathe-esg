@@ -49,7 +49,7 @@ const SideContent: React.FC = () => {
                         </div>
                         <div>
 
-                            Name
+                           Hi, {localStorage.getItem("displayName")}
                         </div>
                         <div>
 

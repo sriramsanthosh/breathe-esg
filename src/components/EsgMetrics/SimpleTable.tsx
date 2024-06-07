@@ -35,7 +35,6 @@ const columns: TableColumnsType<DataType> = [
   {
     title: 'RISK CLASSIFICATION',
     dataIndex: 'risk',
-    render: (text: string) => <span>{text==="low"?text:"-"}</span>,
   },
   {
     title: 'STATUS',

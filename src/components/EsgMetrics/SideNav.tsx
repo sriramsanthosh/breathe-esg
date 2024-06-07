@@ -47,6 +47,7 @@ const SideNav: React.FC = () => {
         const clickedItem = items.find(item => item.key === e.key);
         if (clickedItem && clickedItem.key==='9') {
             message.success("Logout Success");
+            localStorage.clear();
             Navigate("/");
         }
     };
