@@ -2,7 +2,7 @@ import { Button, message } from 'antd';
 import React from 'react'
 import Globe from "../../images/globe.svg";
 import { NavLink, useNavigate } from 'react-router-dom';
-import { auth, signInWithEmailAndPassword } from '../../firebase';
+import { GoogleAuthProvider, auth, getRedirectResult, provider, signInWithEmailAndPassword, signInWithPopup } from '../../firebase';
 
 
 interface LoginProps {
@@ -11,6 +11,32 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
     const Navigate = useNavigate();
+    const handleGoogleSignIn = async () => {
+        message.loading("Signing with Google");
+        await signInWithPopup(auth, provider)
+            .then((result) => {
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const displayName = result.user.displayName;
+                if (displayName) {
+                    localStorage.setItem("displayName", displayName);
+                }
+                if (credential) {
+                    const token = credential.accessToken;
+                    if (token) {
+                        localStorage.setItem("token", token);
+                    }
+                }
+                message.success("Login Success");
+                Navigate("/dashboard");
+            }).catch((error) => {
+                console.error(error);
+                message.error("Server connection error.. Try Again");
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.customData.email;
+                const credential = GoogleAuthProvider.credentialFromError(error);
+            });
+    }
 
     const handleLogin = async () => {
         try {
@@ -110,7 +136,7 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
                 <div style={{ marginTop: "20px", marginBottom: "10px" }}>Password <span style={{ color: "#CA3C25" }}>*</span></div>
                 <input type="password" name="password" id="password" placeholder='Password' />
                 <div className='signUpContainer'>
-                    <p className='text-center signUpBox'><i className="fa-brands fa-google"></i> &nbsp; Sign up with Google</p>
+                    <p onClick={handleGoogleSignIn} className='text-center signUpBox'><i className="fa-brands fa-google"></i> &nbsp; Sign up with Google</p>
                     <p className='text-center signUpBox'><i className="fa-brands fa-github"></i> &nbsp; Sign up with Twitter</p>
                     {/* <p className='text-center signUpBox' onClick={()=>setLoginSwitch(false)}><i className="fa-solid fa-hand-pointer"></i> &nbsp; Manual Sign up</p> */}
                 </div>
