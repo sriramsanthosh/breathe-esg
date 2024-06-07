@@ -8,7 +8,7 @@ const AccessPage: React.FC = () => {
     const [switchLogin, setLoginSwitch] = useState(true);
 
     useEffect(()=>{
-        
+        document.title = "Welcome"
     }, [switchLogin]);
     
     return (

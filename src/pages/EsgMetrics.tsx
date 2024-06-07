@@ -8,6 +8,7 @@ import { NavLink} from 'react-router-dom';
 import { Divider } from 'antd';
 
 const EsgMetricsPage: React.FC = () => {
+    document.title = "ESG Metrics: Environment - Water"
     return (
         <div>
             {localStorage.getItem("displayName") ? <div style={{ background: "white", width: "100%" }}>

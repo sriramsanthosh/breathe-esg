@@ -76,7 +76,7 @@ const SideContent: React.FC = () => {
             <Divider />
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", }}>
                 <div style={{ display: "flex" }}>
-                    <div className="internal-tabs" id="tab1" onClick={()=>{handleTab(0);}}><i className="fa-regular fa-building"></i> DATA ENTRY</div>&nbsp; &nbsp;
+                    <div style={{color:"#4CA65B"}} className="internal-tabs" id="tab1" onClick={()=>{handleTab(0);}}><i className="fa-regular fa-building"></i> DATA ENTRY</div>&nbsp; &nbsp;
                     <div className="internal-tabs" id="tab2" onClick={()=>{handleTab(1);}}><i className="fa-solid fa-bullseye"></i> TRACKER</div>
                 </div>
                 <div>For: <Select

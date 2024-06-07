@@ -13,63 +13,75 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
     const Navigate = useNavigate();
 
     const handleGoogleSignIn = async () => {
-        message.loading("Signing with Google");
-        await signInWithPopup(auth, provider)
-            .then((result) => {
-                message.loading("Setting up everything");
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const displayName = result.user.displayName;
-                if (displayName) {
-                    localStorage.setItem("displayName", displayName);
-                }
-                if (credential) {
-                    const token = credential.accessToken;
-                    if (token) {
-                        localStorage.setItem("token", token);
+        try {
+            message.loading("Signing with Google");
+            await signInWithPopup(auth, provider)
+                .then((result) => {
+                    message.loading("Setting up everything");
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    const displayName = result.user.displayName;
+                    if (displayName) {
+                        localStorage.setItem("displayName", displayName);
                     }
-                }
-                message.success("Login Success");
-                Navigate("/dashboard");
-            }).catch((error) => {
-                console.error(error);
-                message.error("Server connection error.. Try Again");
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const email = error.customData.email;
-                const credential = GoogleAuthProvider.credentialFromError(error);
-                console.error(email);
-                console.error(credential);
-            });
+                    if (credential) {
+                        const token = credential.accessToken;
+                        if (token) {
+                            localStorage.setItem("token", token);
+                        }
+                    }
+                    message.success("Login Success");
+                    Navigate("/dashboard");
+                }).catch((error) => {
+                    console.error(error);
+                    message.error("Server connection error.. Try Again");
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    const email = error.customData.email;
+                    const credential = GoogleAuthProvider.credentialFromError(error);
+                    console.error(email);
+                    console.error(credential);
+                });
+        }
+        catch (err) {
+            console.log(err);
+            message.error("Something went wrong..");
+        }
     }
 
-    const handleGithubLogin=async()=>{
-        message.loading("Signing with Github");
-        await signInWithPopup(auth, gitProvider)
-            .then((result) => {
-                message.loading("Setting up everything");
-                const credential = GithubAuthProvider.credentialFromResult(result);
-                const displayName = result.user.displayName;
-                if (displayName) {
-                    localStorage.setItem("displayName", displayName);
-                }
-                if (credential) {
-                    const token = credential.accessToken;
-                    if (token) {
-                        localStorage.setItem("token", token);
+    const handleGithubLogin = async () => {
+        try {
+            message.loading("Signing with Github");
+            await signInWithPopup(auth, gitProvider)
+                .then((result) => {
+                    message.loading("Setting up everything");
+                    const credential = GithubAuthProvider.credentialFromResult(result);
+                    const displayName = result.user.displayName;
+                    if (displayName) {
+                        localStorage.setItem("displayName", displayName);
                     }
-                }
-                message.success("Login Success");
-                Navigate("/dashboard");
-            }).catch((error) => {
-                console.error(error);
-                message.error("Server connection error.. Try Again");
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const email = error.customData.email;
-                const credential = GithubAuthProvider.credentialFromError(error);
-                console.error(email);
-                console.error(credential);
-            });
+                    if (credential) {
+                        const token = credential.accessToken;
+                        if (token) {
+                            localStorage.setItem("token", token);
+                        }
+                    }
+                    message.success("Login Success");
+                    Navigate("/dashboard");
+                }).catch((error) => {
+                    console.error(error);
+                    message.error("Server connection error.. Try Again");
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    const email = error.customData.email;
+                    const credential = GithubAuthProvider.credentialFromError(error);
+                    console.error(email);
+                    console.error(credential);
+                });
+        }
+        catch (err) {
+            console.log(err);
+            message.error("Something went wrong..");
+        }
     }
 
     const handleLogin = async () => {

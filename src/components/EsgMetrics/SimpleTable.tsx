@@ -92,29 +92,24 @@ const data: DataType[] = [
   },
   {
     key: '4',
-    name: 'Assessment 4',
-    typeText:'BRSR',
+    name: 'Assessment 3',
+    typeText:'Custom',
     suppliers:49,
     score:23,
     risk:"Medium",
     status:true,
     result:true,
   },
-  
-  // {
-  //   key: '2',
-  //   name: 'Assessment 2',
-  //   typeText: 'BPSR',
-  //   age: 42,
-  //   address: 'London No. 1 Lake Park',
-  // },
-  // {
-  //   key: '3',
-  //   name: 'Assessment 3',
-  //   age: 32,
-  //   address: 'Sydney No. 1 Lake Park',
-  //   typeText: 'BRSR'
-  // }
+  {
+    key: '5',
+    name: 'Assessment 3',
+    typeText:'Custom',
+    suppliers:100,
+    score:42,
+    risk:"Medium",
+    status:true,
+    result:true,
+  },
 ];
 
 // rowSelection object indicates the need for row selection
