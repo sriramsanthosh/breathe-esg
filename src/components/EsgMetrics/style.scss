@@ -1,24 +1,26 @@
-.sideContent{
-    .navbar{
-        div{
-            margin:0 10px
+.sideContent {
+    .navbar {
+        div {
+            margin: 0 10px
         }
     }
-    .internal-tabs{
+
+    .internal-tabs {
         cursor: pointer;
     }
 
-    .text-right{
+    .text-right {
         text-align: right;
     }
-    .timing-text{
+
+    .timing-text {
         font-size: 11px;
         color: lightgray;
         font-weight: 600;
         margin: 10px;
     }
 
-    .widget{
+    .widget {
         margin: 5px;
         display: flex;
         flex-wrap: wrap;
@@ -28,32 +30,55 @@
         width: fit-content;
         cursor: pointer;
         user-select: none;
-        .top{
+
+        .top {
 
             margin: 20px 5px;
 
-            .stats{
+            .stats {
                 line-height: 1px;
             }
         }
-        
+
     }
-    .widget-container{
+
+    .widget-container {
         display: flex;
         flex-wrap: wrap;
     }
-    
-    .widget-icon-container{
+
+    .widget-icon-container {
         font-size: 30px;
         margin: 4px 20px;
         margin-right: 10px;
-        }
-        
-        .widget-icon{
-            background-color: rgba(211, 211, 211, 0.495);
-            padding: 4px 4px;
-            margin: "20px";
-            border-radius: 8px;
-        }
-}
+    }
 
+    .widget-icon {
+        background-color: rgba(211, 211, 211, 0.495);
+        padding: 4px 4px;
+        margin: "20px";
+        border-radius: 8px;
+    }
+
+    .pink-box{
+        color: #F04F6D;
+        background-color: #F04F6D33;
+    }
+
+    .orange-box{
+        color: #F09948;
+        background-color: #F099483D;
+    }
+
+    .green-box{
+        color: #4FA556;
+        background-color: #2E984433;
+    }
+
+    .button-box{
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 5px;
+        font-weight: 600;
+    }
+}

@@ -15,6 +15,7 @@ import {
 import type { MenuProps } from 'antd';
 import { Menu, message } from 'antd';
 import { NavLink, useNavigate } from 'react-router-dom';
+import {signOut, auth} from "../../firebase";
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -43,12 +44,18 @@ const SideNav: React.FC = () => {
         setCollapsed(!collapsed);
     };
 
-    const handleMenuClick: MenuProps['onClick'] = (e) => {
+    const handleMenuClick: MenuProps['onClick'] = async(e) => {
         const clickedItem = items.find(item => item.key === e.key);
         if (clickedItem && clickedItem.key==='9') {
-            message.success("Logout Success");
-            localStorage.clear();
-            Navigate("/");
+            await signOut(auth).then(() => {
+                message.success("Logout Success");
+                localStorage.clear();
+                Navigate("/");
+                }).catch((error) => {
+                    // An error happened.
+                    message.error("Error in logging out");
+                    console.error(error);
+              });
         }
     };
 

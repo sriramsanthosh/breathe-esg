@@ -186,8 +186,8 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
                     <p onClick={handleGithubLogin} className='text-center signUpBox'><i className="fa-brands fa-github"></i> &nbsp; Sign up with Github</p>
                     {/* <p className='text-center signUpBox' onClick={()=>setLoginSwitch(false)}><i className="fa-solid fa-hand-pointer"></i> &nbsp; Manual Sign up</p> */}
                 </div>
+                <div style={{ textAlign: "center", margin: "10px 0" }}> Don't have an account? <span style={{ cursor: "pointer", color: "lightgreen", textDecoration: "underline" }} onClick={() => setLoginSwitch(false)} >Sign Up</span></div>
                 <div className='text-center'>Having trouble logging in? <NavLink to="" style={{ color: "lightgreen" }}>Contact Us</NavLink></div>
-                <div style={{ textAlign: "center", marginTop: "10px", color: "lightgreen", textDecoration: "underline" }}> <span style={{ cursor: "pointer" }} onClick={() => setLoginSwitch(false)} >Swith to Manual Sign Up</span></div>
                 <Button type="primary" htmlType='submit' style={{ width: "100%", marginTop: "35px", fontSize: "18px", padding: "20px", fontWeight: "bold" }}>Continue</Button>
             </form>
         </div>
