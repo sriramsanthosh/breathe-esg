@@ -13,7 +13,6 @@ const App: React.FC = () => {
           <Route path='/' element={<WelcomePage />} />
           <Route path='/dashboard' element={<EsgMetricsPage />} />
         </Routes>
-
       </BrowserRouter>
     </ConfigProvider>
   )

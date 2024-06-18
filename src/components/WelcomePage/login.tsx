@@ -1,9 +1,9 @@
 import { Button, message } from 'antd';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Globe from "../../images/globe.svg";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { GithubAuthProvider, GoogleAuthProvider, auth, gitProvider, provider, signInWithEmailAndPassword, signInWithPopup } from '../../firebase';
-
+import {Progress} from 'antd';
 
 interface LoginProps {
     setLoginSwitch: (value: boolean) => void;
@@ -11,6 +11,9 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
     const Navigate = useNavigate();
+
+
+    
 
     const handleGoogleSignIn = async () => {
         try {
@@ -155,6 +158,28 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
 
     }
 
+    const [progressNumber, setProgressNumber] = useState(0);
+    const [timeSecs, setTimeSecs] =useState(1000); 
+
+
+    useEffect(()=>{
+        if(progressNumber<80){
+            setTimeout(() => {
+                progressNumber<50 ?setProgressNumber(progressNumber+1): setProgressNumber(progressNumber+0.1);
+            }, 1000);
+        }
+    });
+
+    // const changeProgress = async()=>{
+    //     for(let i = 1; i<=100; i++){
+    //         setTimeout(async() => {
+    //             await setProgressNumber(i);
+                
+    //         }, 1000);
+    //     }
+    // }
+
+
     return (
         <div style={{
             maxWidth: "420px",
@@ -175,6 +200,10 @@ const Login: React.FC<LoginProps> = ({ setLoginSwitch }) => {
                 position: "relative",
                 padding: "50px 40px",
             }}>
+                <div >
+
+                <Progress percent={progressNumber} />
+                </div>
                 <div style={{ fontWeight: "600", lineHeight: "36px", fontSize: "24px" }}>Login</div>
                 <div>Enter your registered Email ID to continue</div>
                 <div style={{ marginTop: "20px", marginBottom: "10px" }}>Email <span style={{ color: "#CA3C25" }}>*</span></div>

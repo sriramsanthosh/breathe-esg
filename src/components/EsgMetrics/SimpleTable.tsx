@@ -14,6 +14,10 @@ interface DataType {
   result: boolean;
 }
 
+const SimpleTable: React.FC = () => {
+
+  const [temp, setTemp] = useState(1);
+
 const columns: TableColumnsType<DataType> = [
   {
     title: 'ASSESSMENT TITLE',
@@ -123,14 +127,32 @@ const rowSelection = {
   }),
 };
 
-const SimpleTable: React.FC = () => {
   const [selectionType, setSelectionType] = useState<'checkbox'>('checkbox');
-  
+  const [currIndex, setCurrIndex] = useState(5);
+
+  const handleAddAssignment = async()=>{
+    setCurrIndex(currIndex+1);
+    const newData = {
+      key: `${currIndex}`,
+      name: 'Assessment 3',
+      typeText:'Custom',
+      suppliers:100,
+      score:42,
+      risk:"Medium",
+      status:true,
+      result:true,
+    }
+    await data.push(newData);
+    console.log(data);
+    // setTemp(temp+1);
+  }
+
   return (
     <div>
+      {<Button onClick={handleAddAssignment} type="primary">Add +</Button>}
       <Divider />
       <div style={{ overflowX: 'auto' }}>
-        <Table
+       <Table
           rowSelection={{
             type: selectionType,
             ...rowSelection,

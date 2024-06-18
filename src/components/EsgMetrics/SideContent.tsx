@@ -6,6 +6,7 @@ import { Button, Divider, Select } from 'antd';
 import Avatar from "../../images/avatar.svg";
 import "./style.scss";
 import TrackerContent from "./TrackerContent";
+import TempTable from "./TempTable";
 
 
 const handleChange = (value: string) => {
@@ -17,6 +18,7 @@ const handleChange = (value: string) => {
 const SideContent: React.FC = () => {
     const [contentName, setContentName] = useState("View Name");
     const [switchComp, setSwitchComp] = useState(false);
+
 
     const handleTab = (temp:number)=>{
         const tab1Div = document.getElementById("tab1")as HTMLDataElement;
@@ -91,9 +93,12 @@ const SideContent: React.FC = () => {
                     ]}
                 /> &nbsp;
                     {!switchComp && <Button type="primary">Submit for Approval</Button>}
+                    
+
                 </div>
             </div>
-            {switchComp? <TrackerContent/>: <SimpleTable />}
+            {/* {switchComp? <TrackerContent/>: <SimpleTable />} */}
+            {switchComp? <TrackerContent/>: <TempTable />}
             <Footer />
         </div>
     )
